@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="./script/libs/vue.js"></script>
     <script src="./script/request.js"></script>
     <title>UET Thesis</title>
@@ -13,7 +14,7 @@
 <body>
     <div id="root">
             <div v-if="!is_login">
-                <login_form inline-template class="login_form" @submit="submitted">
+                <login_form inline-template class="login_form" @submit="submitted" @arlert="getArlert">
                     <table style="width:25%; padding: 1rem; margin: 4rem auto 0 auto">
                         <tr>
                             <th scope="col"><h3 style="padding: 0; font-size: 30px; color: #17a2b8 !important;">ĐĂNG NHẬP</h3></th>
@@ -118,6 +119,11 @@
                         </table>   
                         </div>
                     </list_announcement>   
+            </div>
+            <div>
+                <div  v-bind:class="arlert_type">
+                    <strong><i v-bind:class="icon"></i>{{arlert_title}}</strong>{{arlert_message}}
+                </div>
             </div>
         </div>   
     </div>

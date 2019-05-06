@@ -2,6 +2,10 @@ const app = new Vue({
     el: '#root',
     data: {
         is_login: true,
+        icon: "",
+        arlert_type: "arlert",
+        arlert_message: "",
+        arlert_title: "",
         user_info: {}
     },
     components: {
@@ -33,6 +37,19 @@ const app = new Vue({
         },
         submitted: function(value) {
             this.is_login = value
+        },
+        getArlert: function(type, message) {
+            this.arlert_type = type;
+            this.arlert_message = message;
+            switch (this.arlert_type) {
+                case 'arlert-success' : this.icon = "fas fa-check"; this.arlert_title = "Thành công! "; break;
+                case 'arlert-info': this.icon = "fas fa-question-circle"; this.arlert_title = "Thông tin: "; break;
+                case 'arlert-warning': this.icon = "fas fa-exclamation-triangle"; this.arlert_title = "Cảnh báo! "; break;
+                case 'arlert-error': this.icon = "fas fa-ban"; this.arlert_title = "Lỗi! "; break;
+            }
+            this.arlert_type = 'arlert ' + this.arlert_type + ' appear';
+            this.is_arlert = true;
+            setTimeout(() => {this.arlert_type = "arlert"}, 1000)
         }
     },
     created: function () {

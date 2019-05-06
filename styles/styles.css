@@ -173,3 +173,54 @@ a:hover {
     border-top: 2px solid #dee2e6;
     background-color: rgba(0,0,0,.03)
 }
+
+.arlert {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    padding-left: 2rem;
+    line-height: 3rem;
+    font-size: 1.2rem;
+    transform: translateY(130%);
+    transition-timing-function: ease-in;
+    transition: 0.25s;
+}
+
+.appear {
+    transition: 0.1s;
+    transition-timing-function: ease-out;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.arlert i {
+    font-size: 2rem;
+    margin-right: 2rem;
+    margin-left: 5rem;
+    margin-top: 0.5rem
+}
+
+.arlert-success {
+    color: #3c763d;
+    background-color: rgba(223, 240, 216, 0.6);
+    border: 1px solid #d6e9c6;
+}
+
+.arlert-info {
+    color: #31708f;
+    background-color: rgba(217, 237, 247, 0.6);
+    border: 1px solid #ebccd1;
+}
+
+.arlert-warning {
+    color: #8a6d3b;
+    background-color: rgba(252, 248, 227, 0.6);
+    border: 1px solid #ebccd1;
+}
+
+.arlert-error {
+    color: #a94442;
+    background-color: rgba(242, 222, 222, 0.6);
+    border: 1px solid #ebccd1;
+}
