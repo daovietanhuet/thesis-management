@@ -189,7 +189,8 @@ button i{
 }
 
 .table td,
-.table th {
+.table th, 
+.table i{
     padding: .75rem;
     vertical-align: central;
     border-top: 1px solid #dee2e6;
