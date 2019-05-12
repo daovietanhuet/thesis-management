@@ -50,6 +50,9 @@ const app = new Vue({
             this.arlert_type = 'arlert ' + this.arlert_type + ' appear';
             this.is_arlert = true;
             setTimeout(() => {this.arlert_type = "arlert"}, 1000)
+        },
+        signOut: function() {
+            this.is_login = false
         }
     },
     created: function () {
