@@ -57,7 +57,13 @@
                                             <i class="fas fa-sign-out-alt sign-out"
                                                 title="Đăng xuất"
                                                 v-on:click="signOut()"
+                                                id="logout"
                                             > Đăng xuất</i>
+                                            <span class="menu">Xin chào 
+                                                <span class="menu-item">{{user_info ? user_info.fullName : 'undefined'}}</span> | 
+                                                <span class="menu-item" v-on:click="renderOwnThesis()" v-bind:style="renderOwn?'text-decoration: underline':''">Khóa luận của tôi</span> |
+                                                <span class="menu-item" v-on:click="getListThesis()" v-bind:style="!renderOwn?'text-decoration: underline':''">Tất cả</span>
+                                            </span>
                                         </td>
                                     </tr>
                                 </thead>
@@ -78,7 +84,7 @@
                                     </tr>
                                     <tr v-if="theses.length > 0 && !loading" v-for="(thesis, i) in theses" v-bind:class="(studentThesisInfo && thesis.id === studentThesisInfo.id)?'own_student_thesis':''">
                                         <th scope="row" class="text-center" style="width:5%">{{i + 1}}</th>
-                                        <td scope="col" style="width:40%"><a>{{thesis.thesisSubject}}</a></td>
+                                        <td scope="col" style="width:40%"><a>{{thesis.thesisSubject}} ({{thesis.thesisCode}})</a></td>
                                         <td style="width:20%"><a>Đào Việt Anh</a></td>
                                         <td style="width: 10%">
                                             <div class="speech-bubble-2"
@@ -89,7 +95,7 @@
                                             <button type="button" v-bind:class="thesis.state === 'WAITTING'?'btn_warn':'btn'"
                                                 v-if="userRole === 'STU' && thesis.state !== 'CANCELED'"
                                                 v-on:click="studentThesis(thesis.id, thesis.state)"
-                                                :disabled="!(((!studentThesisInfo && thesis.state === 'NEW' ) || (studentThesisInfo && thesis.id === studentThesisInfo.id)))"
+                                                :disabled="!(((!studentThesisInfo[0] && thesis.state === 'NEW' ) || (studentThesisInfo[0] && thesis.id === studentThesisInfo[0].id)))"
                                             > <i class="fa fa-spinner fa-spin"></i>
                                             {{(thesis.state==='NEW')? 'Đăng ký' : (thesis.state==='WAITTING')? 'Hủy đăng ký' : (thesis.state==='ACTIVE')? 'Sửa': ''}}</button>
 
@@ -106,6 +112,11 @@
                                                 :disabled="lecturerThesisInfo[0] && thesis.lecturerId !== lecturerThesisInfo[0].lecturerId"
                                             > <i class="fa fa-spinner fa-spin"></i>
                                             {{(thesis.state==='NEW')? 'Xóa' : (thesis.state==='WAITTING')? 'Từ chối' : (thesis.state==='ACTIVE')? 'Hoãn': ''}}</button>
+                                        </td>
+                                    </tr>
+                                    <tr v-if="renderOwn && userRole === 'LEC'">
+                                        <td colspan="5" class="text-center" style="font-size:1rem">
+                                               <a><i class="fas fa-folder-plus"></i> Thêm khóa luận mới</a>
                                         </td>
                                     </tr>
                                     <tr>

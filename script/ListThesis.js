@@ -4,16 +4,19 @@ const list_thesis = Vue.component('list_thesis', {
             userRole: window.localStorage.getItem('userRole'),
             loading: true,
             theses: [],
-            studentThesisInfo: null,
+            studentThesisInfo: [],
             lecturerThesisInfo: [],
-            anchor: false
+            user_info: null,
+            renderOwn: false
         }
     },
     methods: {
         getListThesis() {
+            this.loading = true
             request('/thesis/info', 'GET')
                 .then (result => {
-                    this.theses = result.result
+                    this.theses = result.result;
+                    this.renderOwn = false;
                     this.loading = false;
                 })
         },
@@ -21,11 +24,11 @@ const list_thesis = Vue.component('list_thesis', {
             request('/thesis/info', 'GET', 'section=self')
                 .then (result => {
                     if(this.userRole === 'STU'){
-                        if(!result.result || !result.result[0] || result.result === []) this.studentThesisInfo = null
-                        else this.studentThesisInfo = result.result[0]
+                        if(!result.result || !result.result[0] || result.result === []) this.studentThesisInfo = []
+                        else this.studentThesisInfo = result.result
                     } else if(this.userRole === 'LEC')
+                        if(!result.result || !result.result[0] || result.result === []) this.lecturerThesisInfo = []
                         this.lecturerThesisInfo = result.result
-                        console.log(this.lecturerThesisInfo)
                 })
         },
         studentThesis(thesisId, thesisState) {
@@ -118,11 +121,33 @@ const list_thesis = Vue.component('list_thesis', {
                 window.localStorage.removeItem('userId');
                 this.$emit('logout');
             }
+        },
+        getUserInfo() {
+            if(this.userRole === 'STU') {
+                request('/student/info', 'GET')
+                    .then(result => {
+                        if(result && result.httpCode && result.httpCode === 200)
+                            this.user_info = result.result
+                    })
+            } else if (this.userRole === 'LEC') {
+                request('/lecturer/info', 'GET')
+                    .then(result => {
+                        if(result && result.httpCode && result.httpCode === 200)
+                            this.user_info = result.result
+                    })
+            }
+        },
+        renderOwnThesis() {
+            this.loading = true;
+            if(this.userRole === 'STU') this.theses = this.studentThesisInfo
+            else this.theses = this.lecturerThesisInfo
+            setTimeout(() => {this.loading = false;  this.renderOwn = true;} , 300);
         }
     },
     created: function () {
         this.getListThesis()
         this.getOwnThesis()
+        this.getUserInfo()
     },
     mounted: function() {
         // let listThesis = this

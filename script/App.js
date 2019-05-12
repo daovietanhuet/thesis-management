@@ -6,7 +6,6 @@ const app = new Vue({
         arlert_type: "arlert",
         arlert_message: "",
         arlert_title: "",
-        user_info: {}
     },
     components: {
         list_thesis: list_thesis,
