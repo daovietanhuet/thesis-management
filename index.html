@@ -13,7 +13,8 @@
 
 <body>
     <div id="root">
-            <div v-if="!is_login">
+            <i class="fa fa-spinner fa-spin" v-if="loading_page"></i>
+            <div v-if="!is_login && !loading_page">
                 <login_form inline-template class="login_form" @submit="submitted" @arlert="getArlert">
                     <table style="width:25%; padding: 1rem; margin: 4rem auto 0 auto">
                         <tr>
@@ -46,11 +47,12 @@
                     </table>
                 </login_form>
             </div>
-            <div v-if="is_login">
+            <div v-if="is_login && !loading_page">
                     <!--list theses-->
                     <list_thesis inline-template class="col-12" @arlert="getArlert" @logout="signOut">
-                            <table class="table">
-                                <thead>
+                        <div>
+                            <table class="table" style="width:100%; border-radius:0.5rem; border:none">
+                                <thead style="border:none !important">
                                     <tr>
                                         <td colspan="5" class="card-header text-center" style="font-size: 1.5rem;">
                                             <div class="title">Quản lý khóa luận</div>
@@ -84,7 +86,7 @@
                                     </tr>
                                     <tr v-if="theses.length > 0 && !loading" v-for="(thesis, i) in theses" v-bind:class="(studentThesisInfo && thesis.id === studentThesisInfo.id)?'own_student_thesis':''">
                                         <th scope="row" class="text-center" style="width:5%">{{i + 1}}</th>
-                                        <td scope="col" style="width:40%"><a>{{thesis.thesisSubject}} ({{thesis.thesisCode}})</a></td>
+                                        <td scope="col" style="width:40%"><a v-on:click="chooseThesis(thesis)">{{thesis.thesisSubject}} ({{thesis.thesisCode}})</a></td>
                                         <td style="width:20%"><a>Đào Việt Anh</a></td>
                                         <td style="width: 10%">
                                             <div class="speech-bubble-2"
@@ -116,7 +118,7 @@
                                     </tr>
                                     <tr v-if="renderOwn && userRole === 'LEC'">
                                         <td colspan="5" class="text-center" style="font-size:1rem">
-                                               <a><i class="fas fa-folder-plus"></i> Thêm khóa luận mới</a>
+                                               <a v-on:click="chooseThesis()"><i class="fas fa-folder-plus"></i> Thêm khóa luận mới</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -128,6 +130,79 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <!-- modal -->
+                            <div class="w3-modal" style="display:block; padding-top: 2rem" v-if="isOpenThesisModal">
+                                <div style="border-radius: 1rem; width: 50%" v-bind:class="isOpenThesisModal?'w3-modal-content text-center w3-modal-content-appear':'w3-modal-content text-center'">
+                                    <div class="w3-container"> 
+                                        <span v-on:click="closeThesisModal()"
+                                        class="w3-button w3-display-topright">&times;</span>
+                                        <h3 style="padding:0">THÔNG TIN LUẬN ÁN</h3>
+                                    </div>
+                                    <h3 class="w3-container w3-teal" style="margin:0; padding:.5rem">
+                                        {{thesis.thesisSubject}} ({{thesis.thesisCode}})
+                                    </h3>
+                                    <div class="w3-container" style="padding:0">
+                                        <table class="table" style="width:100%">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center"><b>Sinh viên:</b> Đào Việt Anh</td>
+                                                    <td class="text-center"><b>Giảng viên:</b> Lê Việt Anh</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center"><b>Khoa:</b> {{thesis.branch}}</td>
+                                                    <td class="text-center"><b>Trường:</b> {{thesis.university}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 50%" class="text-center">
+                                                            <div class="speech-bubble-2"
+                                                                v-bind:style="colorStatus(thesis.state)"
+                                                                style="width:50%; margin: auto; font-size: 2rem"
+                                                            >{{titleStatus(thesis.state)}}</div>
+                                                    </td>
+                                                    <td class="text-center" style="width:50%">
+                                                            <button type="button" v-bind:class="thesis.state === 'WAITTING'?'btn_warn':'btn'"
+                                                                v-if="userRole === 'STU' && thesis.state !== 'CANCELED'"
+                                                                v-on:click="studentThesis(thesis.id, thesis.state)"
+                                                                :disabled="!(((!studentThesisInfo[0] && thesis.state === 'NEW' ) || (studentThesisInfo[0] && thesis.id === studentThesisInfo[0].id)))"
+                                                                style="width: 50%"
+                                                            > <i class="fa fa-spinner fa-spin"></i>
+                                                            {{(thesis.state==='NEW')? 'Đăng ký' : (thesis.state==='WAITTING')? 'Hủy đăng ký' : (thesis.state==='ACTIVE')? 'Sửa': ''}}</button>
+                
+                                                            <button type="button" class="btn"
+                                                                v-if="userRole === 'LEC' && thesis.state !== 'CANCELED'"
+                                                                v-on:click="lecturerThesisBtn1(thesis.id, thesis.state)"
+                                                                :disabled="lecturerThesisInfo[0] && thesis.lecturerId !== lecturerThesisInfo[0].lecturerId"
+                                                                style="width: 50%"
+                                                            > <i class="fa fa-spinner fa-spin"></i>
+                                                            {{(thesis.state==='NEW')? 'Sửa' : (thesis.state==='WAITTING')? 'Chấp nhận' : (thesis.state==='ACTIVE')? 'Chấm điểm': ''}}</button>
+                                                            
+                                                            <button type="button" class="btn_warn"
+                                                                v-if="userRole === 'LEC' && thesis.state !== 'CANCELED'"
+                                                                v-on:click="lecturerThesisBtn2(thesis.id, thesis.state)"
+                                                                :disabled="lecturerThesisInfo[0] && thesis.lecturerId !== lecturerThesisInfo[0].lecturerId"
+                                                                style="width: 50%"
+                                                            > <i class="fa fa-spinner fa-spin"></i>
+                                                            {{(thesis.state==='NEW')? 'Xóa' : (thesis.state==='WAITTING')? 'Từ chối' : (thesis.state==='ACTIVE')? 'Hoãn': ''}}</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <h3 class="w3-container w3-teal" style="margin:0; padding:.5rem">
+                                            Mô tả chi tiết
+                                    </h3>
+                                        <table class="table" style="width:100%">
+                                            <tbody>
+                                                <tr><td>{{thesis.describle}}</td></tr>
+                                            </tbody>
+                                        </table>
+                                    <footer class="w3-container">
+                                    <p>Modal Footer</p>
+                                    </footer>
+                                
+                                </div>
+                            </div>
+                        </div>
                     </list_thesis>        
 
                     <list_announcement inline-template class="col-11">

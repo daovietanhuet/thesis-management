@@ -7,7 +7,18 @@ const list_thesis = Vue.component('list_thesis', {
             studentThesisInfo: [],
             lecturerThesisInfo: [],
             user_info: null,
-            renderOwn: false
+            renderOwn: false,
+            isOpenThesisModal: false,
+            thesis: null,
+            defaultThesis: {
+                thesisSubject: 'Thêm chủ đề cho khóa luận',
+                thesisCode: 'Mã khóa luận',
+                branch: 'Thêm Khoa cho khóa luận',
+                university: 'Thêm Trường cho khóa luận',
+                state: 'NEW',
+                lecturerId: 'NaN',
+                describle: 'Thêm mô tả cho khóa luận'
+            }
         }
     },
     methods: {
@@ -142,6 +153,14 @@ const list_thesis = Vue.component('list_thesis', {
             if(this.userRole === 'STU') this.theses = this.studentThesisInfo
             else this.theses = this.lecturerThesisInfo
             setTimeout(() => {this.loading = false;  this.renderOwn = true;} , 300);
+        },
+        closeThesisModal() {
+            this.isOpenThesisModal = false;
+        },
+        chooseThesis (thesis) {
+            this.thesis = thesis;
+            if(!thesis) this.thesis = this.defaultThesis
+            this.isOpenThesisModal = true;
         }
     },
     created: function () {

@@ -2,6 +2,7 @@ const app = new Vue({
     el: '#root',
     data: {
         is_login: true,
+        loading_page: true,
         icon: "",
         arlert_type: "arlert",
         arlert_message: "",
@@ -33,6 +34,7 @@ const app = new Vue({
                         this.is_login = false
                     })
             else this.is_login = false
+            this.loading_page = false
         },
         submitted: function(value) {
             this.is_login = value
@@ -55,6 +57,7 @@ const app = new Vue({
         }
     },
     created: function () {
-        this.getToken()
+        this.getToken();
+        screen.orientation.lock('landscape')
     }
 })
