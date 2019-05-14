@@ -51,16 +51,20 @@
                     <!--list theses-->
                     <list_thesis inline-template class="col-12" @arlert="getArlert" @logout="signOut">
                         <div>
-                            <table class="table" style="width:100%; border-radius:0.5rem; border:none">
+                            <table class="table" style="width:100%; border-radius:0.5rem; border:none !important">
                                 <thead style="border:none !important">
-                                    <tr>
-                                        <td colspan="5" class="card-header text-center" style="font-size: 1.5rem;">
+                                    <tr style="border:none !important">
+                                        <td colspan="5" class="card-header text-center" style="font-size: 1.5rem; border:none !important">
                                             <div class="title">Quản lý khóa luận</div>
                                             <i class="fas fa-sign-out-alt sign-out"
                                                 title="Đăng xuất"
                                                 v-on:click="signOut()"
                                                 id="logout"
                                             > Đăng xuất</i>
+                                        </td>
+                                    </tr>
+                                    <tr style="margin:none">
+                                        <td colspan="5" class="card-header text-center">
                                             <span class="menu">Xin chào 
                                                 <span class="menu-item">{{user_info ? user_info.fullName : 'undefined'}}</span> | 
                                                 <span class="menu-item" v-on:click="renderOwnThesis()" v-bind:style="renderOwn?'text-decoration: underline':''">Khóa luận của tôi</span> |

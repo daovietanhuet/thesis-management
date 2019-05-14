@@ -110,10 +110,10 @@ const list_thesis = Vue.component('list_thesis', {
         },
         colorStatus(state){
             switch (state) {
-                case 'NEW': return "background-color: #30f558";
-                case 'WAITTING': return "background-color: #f5c330";
-                case 'ACTIVE': return "background-color: #30f558";
-                case 'CANCELED': return "background-color: #f55d30";
+                case 'NEW': return "color:#fff;background-color:#00a65a";
+                case 'WAITTING': return "color:#212529;background-color:#f39c12";
+                case 'ACTIVE': return "color:#fff;background-color:#007bff;border-color:#007bff";
+                case 'CANCELED': return "color:#fff;background-color:#dd4b39;border-color:#dc3545";
             }
         },
         titleStatus(state){

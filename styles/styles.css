@@ -253,9 +253,10 @@ button i{
     word-wrap: break-word;
     font-weight: 700;
     padding: 1px;
-    color: rgb(49, 12, 134);
+    /* color: rgb(27, 43, 158); */
     width: 100%;
-    font-size: 0.8rem
+    font-size: 0.8rem;
+    color: #007bff
 }
 
 .anchor {
@@ -346,10 +347,9 @@ button i{
 .menu {
     font-size: 1rem;
     margin: auto;
-    margin-top: 1rem;
     display: block;
-    float: right;
-    margin-right: 2rem;
+    float: left;
+    margin-left: 2rem;
 }
 
 .menu-item {
