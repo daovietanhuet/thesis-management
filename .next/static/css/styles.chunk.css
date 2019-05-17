@@ -79,6 +79,9 @@ body {
         width: 100% !important;
         height: 5rem;
     }
+    .disappear {
+        display: none
+    }
 html,body{
     height: 100%;
     font-family: 'Numans', sans-serif;

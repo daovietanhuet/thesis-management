@@ -10106,7 +10106,7 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!******************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Flogin&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Clogin.js ***!
   \******************************************************************************************************************************************************/
@@ -10129,5 +10129,5 @@ module.exports = dll_6dc2816e14fab51b8269;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=login.js.map

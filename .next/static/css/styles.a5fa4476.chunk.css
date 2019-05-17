@@ -270,3 +270,6 @@ body {
         width: 100% !important;
         height: 5rem;
     }
+    .disappear {
+        display: none
+    }
