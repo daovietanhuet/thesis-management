@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -182,7 +182,7 @@ function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\FilterTable.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\FilterTable.js";
 
 
 var FilterTable = function FilterTable(props) {
@@ -320,7 +320,7 @@ var FilterTable = function FilterTable(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\Footer.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\Footer.js";
 
 
 var Footer = function Footer() {
@@ -379,7 +379,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\Modal.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\Modal.js";
 
 
 var Modal =
@@ -503,7 +503,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\NavBar.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\NavBar.js";
 
 
 var NavBar =
@@ -644,7 +644,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\Table.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\Table.js";
 
 
 
@@ -921,7 +921,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _assets_request__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/request */ "./assets/request.js");
 /* harmony import */ var _assets_request__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_request__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\TableRow.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\TableRow.js";
 
 
 
@@ -1784,7 +1784,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\pages\\ContentForm.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\pages\\ContentForm.js";
 
 
 
@@ -1924,7 +1924,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\pages\\index.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\pages\\index.js";
 
 
 
@@ -2085,14 +2085,14 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\daovi\OneDrive\Desktop\uet-thesis-web-app\pages\index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! C:\Users\daovi\OneDrive\Desktop\thesis-management\pages\index.js */"./pages/index.js");
 
 
 /***/ }),

@@ -78,7 +78,7 @@ function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\Footer.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\Footer.js";
 
 
 var Footer = function Footer() {
@@ -6205,10 +6205,10 @@ exports.formatWithValidation = formatWithValidation;
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cuet-thesis-web-app%5Cpages%5Clogin.js!./":
-/*!***************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cuet-thesis-web-app%5Cpages%5Clogin.js ***!
-  \***************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Clogin.js!./":
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Clogin.js ***!
+  \**************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9760,7 +9760,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\pages\\LoginForm.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\pages\\LoginForm.js";
 
 
 
@@ -9989,7 +9989,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\pages\\login.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\pages\\login.js";
 
 
 
@@ -10106,14 +10106,14 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 3:
-/*!*******************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Flogin&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cuet-thesis-web-app%5Cpages%5Clogin.js ***!
-  \*******************************************************************************************************************************************************/
+/***/ 0:
+/*!******************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Flogin&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Clogin.js ***!
+  \******************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Flogin&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cuet-thesis-web-app%5Cpages%5Clogin.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cuet-thesis-web-app%5Cpages%5Clogin.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Flogin&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Clogin.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Flogin&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Clogin.js!./");
 
 
 /***/ }),
@@ -10129,5 +10129,5 @@ module.exports = dll_6dc2816e14fab51b8269;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js","styles"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=login.js.map

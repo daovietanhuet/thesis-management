@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -182,7 +182,7 @@ function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\Footer.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\Footer.js";
 
 
 var Footer = function Footer() {
@@ -734,7 +734,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\pages\\LoginForm.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\pages\\LoginForm.js";
 
 
 
@@ -963,7 +963,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\pages\\login.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\pages\\login.js";
 
 
 
@@ -1080,14 +1080,14 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/login.js ***!
   \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\daovi\OneDrive\Desktop\uet-thesis-web-app\pages\login.js */"./pages/login.js");
+module.exports = __webpack_require__(/*! C:\Users\daovi\OneDrive\Desktop\thesis-management\pages\login.js */"./pages/login.js");
 
 
 /***/ }),

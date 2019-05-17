@@ -78,7 +78,7 @@ function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\FilterTable.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\FilterTable.js";
 
 
 var FilterTable = function FilterTable(props) {
@@ -216,7 +216,7 @@ var FilterTable = function FilterTable(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\Footer.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\Footer.js";
 
 
 var Footer = function Footer() {
@@ -275,7 +275,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\Modal.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\Modal.js";
 
 
 var Modal =
@@ -399,7 +399,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\NavBar.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\NavBar.js";
 
 
 var NavBar =
@@ -540,7 +540,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\Table.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\Table.js";
 
 
 
@@ -817,7 +817,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _assets_request__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/request */ "./assets/request.js");
 /* harmony import */ var _assets_request__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_request__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\components\\TableRow.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\components\\TableRow.js";
 
 
 
@@ -24847,10 +24847,10 @@ exports.formatWithValidation = formatWithValidation;
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cuet-thesis-web-app%5Cpages%5Cindex.js!./":
-/*!**********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cuet-thesis-web-app%5Cpages%5Cindex.js ***!
-  \**********************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Cindex.js!./":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Cindex.js ***!
+  \*********************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -28405,7 +28405,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\pages\\ContentForm.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\pages\\ContentForm.js";
 
 
 
@@ -28545,7 +28545,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\uet-thesis-web-app\\pages\\index.js";
+var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\pages\\index.js";
 
 
 
@@ -28706,14 +28706,14 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 0:
-/*!**************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cuet-thesis-web-app%5Cpages%5Cindex.js ***!
-  \**************************************************************************************************************************************************/
+/***/ 2:
+/*!*************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Cindex.js ***!
+  \*************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cuet-thesis-web-app%5Cpages%5Cindex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cuet-thesis-web-app%5Cpages%5Cindex.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Cindex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Cindex.js!./");
 
 
 /***/ }),
@@ -28729,5 +28729,5 @@ module.exports = dll_6dc2816e14fab51b8269;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js","styles"]]]);
+},[[2,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map
