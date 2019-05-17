@@ -1,0 +1,46 @@
+{
+  "devFiles": [],
+  "pages": {
+    "/": [
+      "static/runtime/webpack-8ed9452df514b4d17d80.js",
+      "static/chunks/commons.ebe23697f1adfa71de17.js",
+      "static/css/styles.c8f0621f.chunk.css",
+      "static/chunks/styles.6db45351995d9b8fee25.js",
+      "static/runtime/main-fd73dbd6f398b7b886ec.js"
+    ],
+    "/ContentForm": [
+      "static/runtime/webpack-8ed9452df514b4d17d80.js",
+      "static/chunks/commons.ebe23697f1adfa71de17.js",
+      "static/runtime/main-fd73dbd6f398b7b886ec.js"
+    ],
+    "/LoginForm": [
+      "static/runtime/webpack-8ed9452df514b4d17d80.js",
+      "static/chunks/commons.ebe23697f1adfa71de17.js",
+      "static/runtime/main-fd73dbd6f398b7b886ec.js"
+    ],
+    "/_app": [
+      "static/runtime/webpack-8ed9452df514b4d17d80.js",
+      "static/chunks/commons.ebe23697f1adfa71de17.js",
+      "static/runtime/main-fd73dbd6f398b7b886ec.js"
+    ],
+    "/_error": [
+      "static/runtime/webpack-8ed9452df514b4d17d80.js",
+      "static/chunks/commons.ebe23697f1adfa71de17.js",
+      "static/runtime/main-fd73dbd6f398b7b886ec.js"
+    ],
+    "/index": [
+      "static/runtime/webpack-8ed9452df514b4d17d80.js",
+      "static/chunks/commons.ebe23697f1adfa71de17.js",
+      "static/css/styles.c8f0621f.chunk.css",
+      "static/chunks/styles.6db45351995d9b8fee25.js",
+      "static/runtime/main-fd73dbd6f398b7b886ec.js"
+    ],
+    "/login": [
+      "static/runtime/webpack-8ed9452df514b4d17d80.js",
+      "static/chunks/commons.ebe23697f1adfa71de17.js",
+      "static/css/styles.c8f0621f.chunk.css",
+      "static/chunks/styles.6db45351995d9b8fee25.js",
+      "static/runtime/main-fd73dbd6f398b7b886ec.js"
+    ]
+  }
+}
