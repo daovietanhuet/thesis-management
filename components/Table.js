@@ -11,9 +11,8 @@ class Table extends React.Component {
     }
   }
 
-  componentDidMount = async () => {
-    const res = await request('/thesis/info')
-    this.setState({listThesis: res.result, loading: false})
+  componentDidMount = () => {
+    this.getAllThesis()
     this.getOwnThesis()
   }
 
@@ -37,12 +36,38 @@ class Table extends React.Component {
     </div>
   )}
 
-  getOwnThesis() {
+  getAllThesis = () => {
+    request('/thesis/info')
+      .then(async result => {
+        if(!result.result || !result.result[0] || result.result === [] || !result.httpCode === 200) this.setState({listThesis: []})
+        else {
+          this.setState({listThesis: result.result, loading: false})
+          let list = result.result;
+          for(let i = 0; i < list.length; i++){
+            let lecturer = await request('/lecturer/info', 'GET', `section=all&id=${list[i].lecturerId}`);
+            list[i].lecturerName = lecturer.result ? lecturer.result[0].fullName: '';
+          }
+          this.setState({listThesis: list, loading: false})
+        }
+      })
+  }
+
+  getOwnThesis = () => {
     request('/thesis/info', 'GET', 'section=self')
-        .then (result => {
-          if(!result.result || !result.result[0] || result.result === [] || !result.httpCode === 200) this.setState({ownThesisInfo: []})
-          else this.setState({ownThesisInfo: result.result})
-        })
+      .then (async result => {
+        if(!result.result || !result.result[0] || result.result === [] || !result.httpCode === 200) this.setState({ownThesisInfo: []})
+        else {
+          this.setState({ownThesisInfo: result.result})
+          let list = result.result;
+          for(let i = 0; i < list.length; i++){
+            let lecturer = await request('/lecturer/info', 'GET', `section=all&id=${list[i].lecturerId}`);
+            let student = (localStorage.getItem('userRole') === 'LEC')? await request('/student/info', 'GET', `id=${list[i].studentId}`): null; 
+            list[i].lecturerName = lecturer.result ? lecturer.result[0].fullName: '';
+            list[i].studentName = student? student.result? student.result[0].fullName : '' : '';
+          }
+          this.setState({ownThesisInfo: list})
+        }
+      })
   }
 
   renderListThesis = (search, filter, own) => {
@@ -50,8 +75,8 @@ class Table extends React.Component {
     let list = this.state.listThesis;
     if(own) list = this.state.ownThesisInfo;
     let result = list.map((ele, index) => {
-        if( (ele.state === filter || (filter === 'ALL')) && ((ele.thesisSubject + `(${ele.thesisCode})`).includes(search)) )
-          return <TableRow {...ele} key={index}/>
+        if( (ele.state === filter || (filter === 'ALL')) && ((ele.thesisSubject + `(${ele.thesisCode})` + ele.lecturerName).includes(search)) )
+          return <TableRow {...ele} own={own} key={index}/>
       })
     if(localStorage.getItem('userRole') === 'LEC' && own) result.push(
       <tr key={result.length}>

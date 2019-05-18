@@ -2,7 +2,7 @@ import moment from 'moment';
 import request from '../assets/request';
 
 const TableRow = props => {
-  const {thesisSubject, state, updated_at, studentId, thesisCode, id} = props
+  const {thesisSubject, state, updated_at, thesisCode, id, thesisMark, lecturerName, studentName, own} = props
   return (
     <tr data-status={state} className="fadein_ele">
       <td>
@@ -17,7 +17,10 @@ const TableRow = props => {
       </td>
       <td>
         <h4 className="title">
-          <a className="name">Lê Mai Phương</a> <i className="fas fa-link"></i> <a className="name">{studentId?'17020567':''}</a>
+          <a className="name">{lecturerName? lecturerName:  <i className="fa fa-spinner fa-spin"></i>} </a> {" "}
+          <i className="fas fa-link"></i> {" "}
+          <a className="name">{studentName? studentName: (own && localStorage.getItem('userRole') === 'LEC')? '(chưa đăng ký)' : (state === 'NEW') ? '': '(bị ẩn)'}</a> {" "}
+          {localStorage.getItem('userRole') !== 'STU' ? (thesisMark? `(${thesisMark})`: '(chưa có điểm)'): ''}
         </h4>
         <p className="summary"> {thesisSubject} ({thesisCode}) </p>
       </td>
