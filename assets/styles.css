@@ -8,6 +8,14 @@ body {
     height: 0;
 }
 
+body{
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+
 .page {
     background-image: url('/_next/static/images/background.jpg');
     background-size: cover;
@@ -137,6 +145,10 @@ span {
     font-weight: 600;
 	color: #d9534f;
 }
+.active {
+    font-weight: 600;
+	color: #2BBCDE;
+}
 .summary {
     font-size: 14px;
     margin: 0
@@ -201,6 +213,10 @@ span {
     margin: 1px;
   }
 
+  .input-code:disabled {
+      background-color: transparent
+  }
+
   .input-code:focus .form-control{
     border-bottom: 1px solid #8bc34a !important;
     border-top: none;
@@ -213,3 +229,20 @@ span {
       width: 45%;
       display: inline-block;
   }
+
+    .modal-new {
+        background-color: #5cb85c;
+    }
+    .modal-waitting {
+        background-color: #f0ad4e;
+    }
+    .modal-canceled {
+        background-color: #d9534f;
+    }
+
+    .modal-active{
+        background-color: #2BBCDE
+    }
+    .modal-white .modal-title {
+        color: #fff
+    }

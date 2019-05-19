@@ -9,7 +9,16 @@ class Table extends React.Component {
       ownThesisInfo: [],
       lecturer: [],
       student: [],
-      loading: true
+      loading: true,
+      defaultThesis: {
+        thesisCode: 'Mã khóa luận',
+        thesisSubject: 'Chủ đề khóa luận',
+        branch: 'Tên khoa',
+        university: 'Tên Trường',
+        describle: 'Mô tả',
+        state: 'NEW',
+        studentName: '(Chưa đăng ký)'
+      }
     }
   }
 
@@ -20,7 +29,7 @@ class Table extends React.Component {
   }
 
   render = () => {
-    const {filter, search, own} = this.props;
+    const {filter, search, own, onChange} = this.props;
     return (
     <div className="table-container">
           <table className="table table-filter">
@@ -33,7 +42,7 @@ class Table extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {!this.state.loading? this.renderListThesis(search, filter, own) : this.renderLoading()}
+              {!this.state.loading? this.renderListThesis(search, filter, own, onChange) : this.renderLoading()}
             </tbody>
           </table>
     </div>
@@ -84,7 +93,7 @@ class Table extends React.Component {
       })
   }
 
-  renderListThesis = (search, filter, own) => {
+  renderListThesis = (search, filter, own, onChange) => {
     let check = false;
     let list = this.state.listThesis;
     if(own) list = this.state.ownThesisInfo;
@@ -98,6 +107,7 @@ class Table extends React.Component {
           <a
             data-toggle='modal'
             data-target="#myModal"
+            onClick={e => onChange({modelThesis: this.state.defaultThesis, modelType: 'create'})}
           ><i className="fas fa-plus"></i> Thêm khóa luận </a>
         </td>
       </tr>
