@@ -283,43 +283,55 @@ var Modal =
 function (_React$Component) {
   Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(Modal, _React$Component);
 
-  function Modal() {
+  function Modal(props) {
+    var _this;
+
     Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Modal);
 
-    return Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Modal).apply(this, arguments));
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Modal).call(this, props));
+    _this.state = {};
+    return _this;
   }
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Modal, [{
     key: "render",
     value: function render() {
+      var _this$props = this.props,
+          thesisCode = _this$props.thesisCode,
+          thesisSubject = _this$props.thesisSubject,
+          lecturerName = _this$props.lecturerName,
+          studentName = _this$props.studentName,
+          branch = _this$props.branch,
+          university = _this$props.university,
+          describle = _this$props.describle;
       return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
         id: "myModal",
         className: "modal fade",
         role: "dialog",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 5
+          lineNumber: 12
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
         className: "modal-dialog",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 6
+          lineNumber: 13
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
         className: "modal-content",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 8
+          lineNumber: 15
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
         className: "modal-header",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 9
+          lineNumber: 16
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("button", {
@@ -328,46 +340,197 @@ function (_React$Component) {
         "data-dismiss": "modal",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 10
+          lineNumber: 17
         },
         __self: this
       }, "\xD7"), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h4", {
         className: "modal-title",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 11
+          lineNumber: 18
         },
         __self: this
-      }, "Modal Header")), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+      }, "Kh\xF3a lu\u1EADn ", react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("input", {
+        className: "input-code",
+        placeholder: "M\xE3 lu\u1EADn \xE1n",
+        value: thesisCode,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        },
+        __self: this
+      })), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h4", {
+        className: "modal-title",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("input", {
+        placeholder: "T\xEAn lu\u1EADn \xE1n",
+        className: "input-code",
+        style: {
+          width: "100%",
+          padding: 0
+        },
+        value: thesisSubject,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        },
+        __self: this
+      }))), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
         className: "modal-body",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 13
+          lineNumber: 21
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 14
+          lineNumber: 22
         },
         __self: this
-      }, "Some text in the modal.")), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("b", {
+        className: "model_ele",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        },
+        __self: this
+      }, "Gi\u1EA3ng vi\xEAn: ", lecturerName), " ", react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+        className: "fas fa-link",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        },
+        __self: this
+      }), " ", react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("b", {
+        className: "model_ele",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        },
+        __self: this
+      }, " Sinh vi\xEAn: ", studentName ? studentName : 'Bị ẩn')), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("b", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24
+        },
+        __self: this
+      }, "Khoa: "), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("input", {
+        placeholder: "T\xEAn khoa",
+        className: "input-code",
+        style: {
+          width: "37%"
+        },
+        value: branch,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25
+        },
+        __self: this
+      }), " ", react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+        className: "fas fa-link",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        },
+        __self: this
+      }), " ", react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("b", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
+      }, " Tr\u01B0\u1EDDng: "), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("input", {
+        placeholder: "T\xEAn tr\u01B0\u1EDDng",
+        className: "input-code",
+        style: {
+          width: "35%"
+        },
+        value: university,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        },
+        __self: this
+      }), " "), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("b", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        },
+        __self: this
+      }, "Tr\u1EA1ng th\xE1i: ")), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "form-group green-border-focus",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("b", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32
+        },
+        __self: this
+      }, "M\xF4 t\u1EA3:")), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("textarea", {
+        className: "form-control",
+        style: {
+          resize: "none"
+        },
+        rows: "3",
+        disabled: false,
+        value: describle,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 33
+        },
+        __self: this
+      }))), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
         className: "modal-footer",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 38
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39
+        },
+        __self: this
+      }, "L\u01B0u"), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("button", {
         type: "button",
         className: "btn btn-default",
         "data-dismiss": "modal",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 40
         },
         __self: this
-      }, "Close")))));
+      }, "Tho\xE1t")))));
     }
   }]);
 
@@ -554,15 +717,33 @@ function (_React$Component) {
 
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(Table).call(this, props));
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "componentDidMount", function () {
-      _this.getAllThesis();
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "componentDidMount",
+    /*#__PURE__*/
+    Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
+    /*#__PURE__*/
+    _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee() {
+      return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _this.getAllInfo();
 
-      _this.getOwnThesis();
-    });
+            case 2:
+              _this.getAllThesis();
+
+              _this.getOwnThesis();
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    })));
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "render", function () {
       var _this$props = _this.props,
-          onChange = _this$props.onChange,
           filter = _this$props.filter,
           search = _this$props.search,
           own = _this$props.own;
@@ -570,40 +751,40 @@ function (_React$Component) {
         className: "table-container",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 25
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("table", {
         className: "table table-filter",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 26
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("thead", {
         className: "theadTitle",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 27
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 28
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
         colSpan: 3,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 29
         },
         __self: this
       }, "Kh\xF3a lu\u1EADn"), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 30
         },
         __self: this
       }, "#"), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
@@ -612,92 +793,121 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 31
         },
         __self: this
       }, "Ng\xE0y c\u1EADp nh\u1EADt"), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
         colSpan: 2,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 32
         },
         __self: this
       }, "H\xE0nh \u0111\u1ED9ng"))), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tbody", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 35
         },
         __self: this
       }, !_this.state.loading ? _this.renderListThesis(search, filter, own) : _this.renderLoading())));
     });
 
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "getAllInfo",
+    /*#__PURE__*/
+    Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
+    /*#__PURE__*/
+    _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2() {
+      var lecturer, student;
+      return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return _assets_request__WEBPACK_IMPORTED_MODULE_11___default()('/lecturer/info', 'GET', "section=all");
+
+            case 2:
+              lecturer = _context2.sent;
+              lecturer = lecturer ? lecturer.result : [];
+
+              if (!(localStorage.getItem('userRole') !== 'STU')) {
+                _context2.next = 10;
+                break;
+              }
+
+              _context2.next = 7;
+              return _assets_request__WEBPACK_IMPORTED_MODULE_11___default()('/student/info', 'GET');
+
+            case 7:
+              _context2.t0 = _context2.sent;
+              _context2.next = 11;
+              break;
+
+            case 10:
+              _context2.t0 = null;
+
+            case 11:
+              student = _context2.t0;
+              student = student ? student.result : [];
+              _context2.next = 15;
+              return _this.setState({
+                student: student,
+                lecturer: lecturer
+              });
+
+            case 15:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    })));
+
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "getAllThesis", function () {
       _assets_request__WEBPACK_IMPORTED_MODULE_11___default()('/thesis/info').then(
       /*#__PURE__*/
       function () {
-        var _ref = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
+        var _ref3 = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
         /*#__PURE__*/
-        _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(result) {
-          var list, i, lecturer;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+        _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee3(result) {
+          var list, _this$state, lecturer, student, i, j;
+
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee3$(_context3) {
             while (1) {
-              switch (_context.prev = _context.next) {
+              switch (_context3.prev = _context3.next) {
                 case 0:
-                  if (!(!result.result || !result.result[0] || result.result === [] || !result.httpCode === 200)) {
-                    _context.next = 4;
-                    break;
-                  }
-
-                  _this.setState({
+                  if (!result.result || !result.result[0] || result.result === [] || !result.httpCode === 200) _this.setState({
                     listThesis: []
-                  });
+                  });else {
+                    _this.setState({
+                      listThesis: result.result,
+                      loading: false
+                    });
 
-                  _context.next = 16;
-                  break;
+                    list = result.result;
+                    _this$state = _this.state, lecturer = _this$state.lecturer, student = _this$state.student;
 
-                case 4:
-                  _this.setState({
-                    listThesis: result.result,
-                    loading: false
-                  });
+                    for (i = 0; i < list.length; i++) {
+                      for (j = 0; j < lecturer.length; j++) {
+                        if (list[i].lecturerId === lecturer[j].id) list[i].lecturerName = lecturer[j].fullName;
+                      }
+                    }
 
-                  list = result.result;
-                  i = 0;
-
-                case 7:
-                  if (!(i < list.length)) {
-                    _context.next = 15;
-                    break;
+                    _this.setState({
+                      listThesis: list,
+                      loading: false
+                    });
                   }
 
-                  _context.next = 10;
-                  return _assets_request__WEBPACK_IMPORTED_MODULE_11___default()('/lecturer/info', 'GET', "section=all&id=".concat(list[i].lecturerId));
-
-                case 10:
-                  lecturer = _context.sent;
-                  list[i].lecturerName = lecturer.result ? lecturer.result[0].fullName : '';
-
-                case 12:
-                  i++;
-                  _context.next = 7;
-                  break;
-
-                case 15:
-                  _this.setState({
-                    listThesis: list,
-                    loading: false
-                  });
-
-                case 16:
+                case 1:
                 case "end":
-                  return _context.stop();
+                  return _context3.stop();
               }
             }
-          }, _callee);
+          }, _callee3);
         }));
 
         return function (_x) {
-          return _ref.apply(this, arguments);
+          return _ref3.apply(this, arguments);
         };
       }());
     });
@@ -706,87 +916,50 @@ function (_React$Component) {
       _assets_request__WEBPACK_IMPORTED_MODULE_11___default()('/thesis/info', 'GET', 'section=self').then(
       /*#__PURE__*/
       function () {
-        var _ref2 = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
+        var _ref4 = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__["default"])(
         /*#__PURE__*/
-        _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2(result) {
-          var list, i, lecturer, student;
-          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
+        _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee4(result) {
+          var list, _this$state2, lecturer, student, i, j, k;
+
+          return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee4$(_context4) {
             while (1) {
-              switch (_context2.prev = _context2.next) {
+              switch (_context4.prev = _context4.next) {
                 case 0:
-                  if (!(!result.result || !result.result[0] || result.result === [] || !result.httpCode === 200)) {
-                    _context2.next = 4;
-                    break;
-                  }
-
-                  _this.setState({
+                  if (!result.result || !result.result[0] || result.result === [] || !result.httpCode === 200) _this.setState({
                     ownThesisInfo: []
-                  });
+                  });else {
+                    _this.setState({
+                      ownThesisInfo: result.result
+                    });
 
-                  _context2.next = 25;
-                  break;
+                    list = result.result;
+                    _this$state2 = _this.state, lecturer = _this$state2.lecturer, student = _this$state2.student;
 
-                case 4:
-                  _this.setState({
-                    ownThesisInfo: result.result
-                  });
+                    for (i = 0; i < list.length; i++) {
+                      for (j = 0; j < lecturer.length; j++) {
+                        if (list[i].lecturerId === lecturer[j].id) list[i].lecturerName = lecturer[j].fullName;
+                      }
 
-                  list = result.result;
-                  i = 0;
+                      if (localStorage.getItem('userRole') !== 'STU') for (k = 0; k < student.length; k++) {
+                        if (list[i].studentId === student[k].id) list[i].studentName = student[k].fullName;
+                      }
+                    }
 
-                case 7:
-                  if (!(i < list.length)) {
-                    _context2.next = 24;
-                    break;
+                    _this.setState({
+                      ownThesisInfo: list
+                    });
                   }
 
-                  _context2.next = 10;
-                  return _assets_request__WEBPACK_IMPORTED_MODULE_11___default()('/lecturer/info', 'GET', "section=all&id=".concat(list[i].lecturerId));
-
-                case 10:
-                  lecturer = _context2.sent;
-
-                  if (!(localStorage.getItem('userRole') === 'LEC')) {
-                    _context2.next = 17;
-                    break;
-                  }
-
-                  _context2.next = 14;
-                  return _assets_request__WEBPACK_IMPORTED_MODULE_11___default()('/student/info', 'GET', "id=".concat(list[i].studentId));
-
-                case 14:
-                  _context2.t0 = _context2.sent;
-                  _context2.next = 18;
-                  break;
-
-                case 17:
-                  _context2.t0 = null;
-
-                case 18:
-                  student = _context2.t0;
-                  list[i].lecturerName = lecturer.result ? lecturer.result[0].fullName : '';
-                  list[i].studentName = student ? student.result ? student.result[0].fullName : '' : '';
-
-                case 21:
-                  i++;
-                  _context2.next = 7;
-                  break;
-
-                case 24:
-                  _this.setState({
-                    ownThesisInfo: list
-                  });
-
-                case 25:
+                case 1:
                 case "end":
-                  return _context2.stop();
+                  return _context4.stop();
               }
             }
-          }, _callee2);
+          }, _callee4);
         }));
 
         return function (_x2) {
-          return _ref2.apply(this, arguments);
+          return _ref4.apply(this, arguments);
         };
       }());
     });
@@ -796,12 +969,13 @@ function (_React$Component) {
       var list = _this.state.listThesis;
       if (own) list = _this.state.ownThesisInfo;
       var result = list.map(function (ele, index) {
-        if ((ele.state === filter || filter === 'ALL') && (ele.thesisSubject + "(".concat(ele.thesisCode, ")") + ele.lecturerName).includes(search)) return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_TableRow__WEBPACK_IMPORTED_MODULE_10__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, ele, {
-          own: own,
-          key: index,
+        if ((ele.state === filter || filter === 'ALL') && (ele.thesisSubject + "(".concat(ele.thesisCode, ")") + ele.lecturerName).toLowerCase().includes(search.toLowerCase())) return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_TableRow__WEBPACK_IMPORTED_MODULE_10__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+          ele: ele,
+          key: index
+        }, _this.props, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79
+            lineNumber: 93
           },
           __self: this
         }));
@@ -810,7 +984,7 @@ function (_React$Component) {
         key: result.length,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 96
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
@@ -824,20 +998,22 @@ function (_React$Component) {
         className: "fadein_ele",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 97
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("a", {
+        "data-toggle": "modal",
+        "data-target": "#myModal",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 98
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("i", {
         className: "fas fa-plus",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 101
         },
         __self: this
       }), " Th\xEAm kh\xF3a lu\u1EADn "))));
@@ -849,7 +1025,7 @@ function (_React$Component) {
       if (!check) return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 90
+          lineNumber: 107
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
@@ -863,14 +1039,14 @@ function (_React$Component) {
         className: "fadein_ele",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91
+          lineNumber: 108
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("i", {
         className: "fas fa-database",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
+          lineNumber: 109
         },
         __self: this
       }), " NO DATA"));else return result;
@@ -880,7 +1056,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 101
+          lineNumber: 118
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
@@ -892,14 +1068,14 @@ function (_React$Component) {
         className: "fadein_ele",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 119
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("i", {
         className: "fa fa-spinner fa-spin",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 120
         },
         __self: this
       }), " Loading..."));
@@ -908,6 +1084,8 @@ function (_React$Component) {
     _this.state = {
       listThesis: [],
       ownThesisInfo: [],
+      lecturer: [],
+      student: [],
       loading: true
     };
     return _this;
@@ -941,47 +1119,49 @@ var _jsxFileName = "C:\\Users\\daovi\\OneDrive\\Desktop\\thesis-management\\comp
 
 
 var TableRow = function TableRow(props) {
-  var thesisSubject = props.thesisSubject,
-      state = props.state,
-      updated_at = props.updated_at,
-      thesisCode = props.thesisCode,
-      id = props.id,
-      thesisMark = props.thesisMark,
-      lecturerName = props.lecturerName,
-      studentName = props.studentName,
-      own = props.own;
+  var _props$ele = props.ele,
+      thesisSubject = _props$ele.thesisSubject,
+      state = _props$ele.state,
+      updated_at = _props$ele.updated_at,
+      thesisCode = _props$ele.thesisCode,
+      id = _props$ele.id,
+      thesisMark = _props$ele.thesisMark,
+      lecturerName = _props$ele.lecturerName,
+      studentName = _props$ele.studentName;
+  var own = props.own,
+      onChange = props.onChange;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
     "data-status": state,
     className: "fadein_ele",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 8
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 9
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "javascript:;",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 14
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 15
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -989,89 +1169,95 @@ var TableRow = function TableRow(props) {
     className: "media-photo",
     "data-toggle": "modal",
     "data-target": "#myModal",
+    onClick: function onClick(e) {
+      return onChange({
+        modelThesis: props.ele,
+        modelType: 'fix'
+      });
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: this
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 19
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
     className: "title",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 20
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "name",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 21
     },
     __self: this
   }, lecturerName ? lecturerName : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fa fa-spinner fa-spin",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 21
     },
     __self: this
   }), " "), " ", " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 22
     },
     __self: this
   }), " ", " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "name",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 23
     },
     __self: this
   }, studentName ? studentName : own && localStorage.getItem('userRole') === 'LEC' ? '(chưa đăng ký)' : state === 'NEW' ? '' : '(bị ẩn)'), " ", " ", localStorage.getItem('userRole') !== 'STU' ? thesisMark ? "(".concat(thesisMark, ")") : '(chưa có điểm)' : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "summary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 26
     },
     __self: this
   }, " ", thesisSubject, " (", thesisCode, ") ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 28
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: getClassStatus(state),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 29
     },
     __self: this
   }, "(", getStatus(state), ")")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 31
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "media-meta",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 32
     },
     __self: this
   }, moment__WEBPACK_IMPORTED_MODULE_1___default()(updated_at).format("DD/MM/YYYY"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 34
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1079,18 +1265,18 @@ var TableRow = function TableRow(props) {
     "data-target": "#myModal",
     className: state === 'CANCELED' ? 'disappear' : 'btn btn-default btn-action-pos',
     onClick: function onClick(e) {
-      return doActivity(state, 'pos', id);
+      return doActivity(state, 'pos', id, onChange, props.ele);
     },
     type: "button",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 35
     },
     __self: this
   }, getActivity(state, 'pos'))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 43
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1101,7 +1287,7 @@ var TableRow = function TableRow(props) {
     type: "button",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 44
     },
     __self: this
   }, getActivity(state, 'neg'))));
@@ -1171,7 +1357,7 @@ var getActivity = function getActivity(status, type) {
   }
 };
 
-var doActivity = function doActivity(status, type, thesisId) {
+var doActivity = function doActivity(status, type, thesisId, onChange, ele) {
   var userRole = localStorage.getItem('userRole');
   var isStudent = userRole === 'STU';
   var config = null;
@@ -1235,7 +1421,10 @@ var doActivity = function doActivity(status, type, thesisId) {
   }
 
   var cf = false;
-  if (!config) return 0;else cf = confirm("Bạn có chắc chắn thực hiện hành động này không. Hành động này có thể ảnh hưởng lớn đến kết quả sau này");
+  if (!config) onChange({
+    modelThesis: ele,
+    modelType: 'fix'
+  });else cf = confirm("Bạn có chắc chắn thực hiện hành động này không. Hành động này có thể ảnh hưởng lớn đến kết quả sau này");
   if (cf) _assets_request__WEBPACK_IMPORTED_MODULE_2___default()(config.endpoint + thesisId, config.methods).then(function (result) {
     if (result && result.httpCode && result.httpCode === 200) {
       console.log("ok");
@@ -28559,7 +28748,9 @@ function (_React$Component) {
     _this.state = {
       own: false,
       filter: "ALL",
-      search: ""
+      search: "",
+      modelThesis: null,
+      modelType: 'fix'
     };
     return _this;
   }
@@ -28571,63 +28762,66 @@ function (_React$Component) {
         className: "container",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 20
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "row",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 21
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("section", {
         className: "content",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 22
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "panel panel-default",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 23
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
         className: "panel-body",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 24
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_FilterTable__WEBPACK_IMPORTED_MODULE_10__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.state, {
         onChange: this.onSetState,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 25
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Table__WEBPACK_IMPORTED_MODULE_9__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.state, {
+        onChange: this.onSetState,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 26
         },
         __self: this
       })))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
-        },
-        __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Modal__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 29
         },
         __self: this
-      })));
+      })), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_components_Modal__WEBPACK_IMPORTED_MODULE_12__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.state.modelThesis, {
+        modelType: this.state.modelType,
+        own: this.state.own,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
+        },
+        __self: this
+      }))));
     }
   }]);
 
@@ -28834,7 +29028,7 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 0:
 /*!*************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cdaovi%5COneDrive%5CDesktop%5Cthesis-management%5Cpages%5Cindex.js ***!
   \*************************************************************************************************************************************************/
@@ -28857,5 +29051,5 @@ module.exports = dll_6dc2816e14fab51b8269;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js","styles"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

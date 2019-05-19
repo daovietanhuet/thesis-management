@@ -2,7 +2,8 @@ import moment from 'moment';
 import request from '../assets/request';
 
 const TableRow = props => {
-  const {thesisSubject, state, updated_at, thesisCode, id, thesisMark, lecturerName, studentName, own} = props
+  const {thesisSubject, state, updated_at, thesisCode, id, thesisMark, lecturerName, studentName} = props.ele;
+  const {own, onChange} = props;
   return (
     <tr data-status={state} className="fadein_ele">
       <td>
@@ -12,7 +13,7 @@ const TableRow = props => {
       </td>
       <td>
           <a href="#">
-            <img src="_next/static/images/thesis_icon.png" className="media-photo"  data-toggle="modal"  data-target="#myModal"/>
+            <img src="_next/static/images/thesis_icon.png" className="media-photo"  data-toggle="modal"  data-target="#myModal" onClick={e => onChange({modelThesis: props.ele, modelType: 'fix'})}/>
           </a>
       </td>
       <td>
@@ -35,8 +36,9 @@ const TableRow = props => {
             data-toggle={(state === 'NEW' && localStorage.getItem('userRole') === 'STU') || (state === 'WAITTING') ? '' : 'modal'} 
             data-target="#myModal"
             className={state === 'CANCELED' ? 'disappear': 'btn btn-default btn-action-pos'}
-            onClick={e => doActivity(state, 'pos', id)}
-            type="button">{getActivity(state, 'pos')}</button>
+            onClick={e => doActivity(state, 'pos', id, onChange, props.ele)}
+            type="button"
+          >{getActivity(state, 'pos')}</button>
       </td>
       <td>
           <button 
@@ -85,7 +87,7 @@ const getActivity = (status, type) => {
   }
 }
 
-const doActivity = (status, type, thesisId) => {
+const doActivity = (status, type, thesisId, onChange, ele) => {
   let userRole = localStorage.getItem('userRole');
   let isStudent = userRole === 'STU';
   let config = null;
@@ -105,7 +107,7 @@ const doActivity = (status, type, thesisId) => {
       }; break;
   }
   let cf = false;
-  if(!config) return 0;
+  if(!config)  onChange({modelThesis: ele, modelType: 'fix'})
   else cf = confirm("Bạn có chắc chắn thực hiện hành động này không. Hành động này có thể ảnh hưởng lớn đến kết quả sau này");
   if (cf)
     request(config.endpoint+thesisId, config.methods)

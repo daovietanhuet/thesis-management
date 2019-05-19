@@ -9,7 +9,9 @@ class ContentForm extends React.Component {
     this.state = {
       own: false,
       filter: "ALL",
-      search: ""
+      search: "", 
+      modelThesis: null,
+      modelType: 'fix'
     }
   }
 
@@ -21,12 +23,12 @@ class ContentForm extends React.Component {
             <div className="panel panel-default">
               <div className="panel-body">
                   <FilterTable {...this.state} onChange={this.onSetState}/>
-                  <Table {...this.state}/>
+                  <Table {...this.state} onChange={this.onSetState}/>
                 </div>
             </div>
             <Footer/>
           </section>
-          <Modal/>
+          <Modal {...this.state.modelThesis} modelType={this.state.modelType} own={this.state.own}/>
         </div>
       </div>
     )

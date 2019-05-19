@@ -7,17 +7,20 @@ class Table extends React.Component {
     this.state = {
       listThesis: [],
       ownThesisInfo: [],
+      lecturer: [],
+      student: [],
       loading: true
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
+    await this.getAllInfo();
     this.getAllThesis()
     this.getOwnThesis()
   }
 
   render = () => {
-    const {onChange, filter, search, own} = this.props;
+    const {filter, search, own} = this.props;
     return (
     <div className="table-container">
           <table className="table table-filter">
@@ -36,6 +39,14 @@ class Table extends React.Component {
     </div>
   )}
 
+  getAllInfo = async() => {
+    let lecturer = await request('/lecturer/info', 'GET', `section=all`);
+    lecturer = lecturer? lecturer.result : [];
+    let student = (localStorage.getItem('userRole') !== 'STU')? await request('/student/info', 'GET') : null;
+    student = student? student.result : [];
+    await this.setState({student: student, lecturer: lecturer});
+  }
+
   getAllThesis = () => {
     request('/thesis/info')
       .then(async result => {
@@ -43,9 +54,10 @@ class Table extends React.Component {
         else {
           this.setState({listThesis: result.result, loading: false})
           let list = result.result;
+          let {lecturer, student} = this.state;
           for(let i = 0; i < list.length; i++){
-            let lecturer = await request('/lecturer/info', 'GET', `section=all&id=${list[i].lecturerId}`);
-            list[i].lecturerName = lecturer.result ? lecturer.result[0].fullName: '';
+            for(let j = 0; j < lecturer.length; j++) 
+              if(list[i].lecturerId === lecturer[j].id) list[i].lecturerName = lecturer[j].fullName;
           }
           this.setState({listThesis: list, loading: false})
         }
@@ -59,11 +71,13 @@ class Table extends React.Component {
         else {
           this.setState({ownThesisInfo: result.result})
           let list = result.result;
+          let {lecturer, student} = this.state;
           for(let i = 0; i < list.length; i++){
-            let lecturer = await request('/lecturer/info', 'GET', `section=all&id=${list[i].lecturerId}`);
-            let student = (localStorage.getItem('userRole') === 'LEC')? await request('/student/info', 'GET', `id=${list[i].studentId}`): null; 
-            list[i].lecturerName = lecturer.result ? lecturer.result[0].fullName: '';
-            list[i].studentName = student? student.result? student.result[0].fullName : '' : '';
+            for(let j = 0; j < lecturer.length; j++) 
+              if(list[i].lecturerId === lecturer[j].id) list[i].lecturerName = lecturer[j].fullName;
+            if (localStorage.getItem('userRole') !== 'STU')
+              for(let k = 0; k < student.length; k++) 
+                if(list[i].studentId === student[k].id) list[i].studentName = student[k].fullName;
           }
           this.setState({ownThesisInfo: list})
         }
@@ -75,13 +89,16 @@ class Table extends React.Component {
     let list = this.state.listThesis;
     if(own) list = this.state.ownThesisInfo;
     let result = list.map((ele, index) => {
-        if( (ele.state === filter || (filter === 'ALL')) && ((ele.thesisSubject + `(${ele.thesisCode})` + ele.lecturerName).includes(search)) )
-          return <TableRow {...ele} own={own} key={index}/>
+        if( (ele.state === filter || (filter === 'ALL')) && ((ele.thesisSubject + `(${ele.thesisCode})` + ele.lecturerName).toLowerCase().includes(search.toLowerCase())) )
+          return <TableRow ele={ele} key={index} {...this.props}/>
       })
     if(localStorage.getItem('userRole') === 'LEC' && own) result.push(
       <tr key={result.length}>
         <td colSpan="7" style={{verticalAlign: "center", textAlign: "center", fontSize: "2rem", color: "#ddd"}} className="fadein_ele">
-          <a><i className="fas fa-plus"></i> Thêm khóa luận </a>
+          <a
+            data-toggle='modal'
+            data-target="#myModal"
+          ><i className="fas fa-plus"></i> Thêm khóa luận </a>
         </td>
       </tr>
     )
