@@ -10,7 +10,8 @@ class Modal extends React.Component {
         university: 'Tên Trường',
         describle: 'Mô tả',
         state: 'NEW',
-        activityType: ''
+        activityType: '',
+        mark: null
       }
     }
     componentWillReceiveProps(nextProps) {
@@ -19,7 +20,7 @@ class Modal extends React.Component {
       if(!nextProps.lecturerName) this.setState({lecturerName: null})
     }
     render() {
-      const {thesisCode, thesisSubject, lecturerName, studentName, branch, university, describle, state, modelType} = this.state;
+      const {thesisCode, thesisSubject, lecturerName, studentName, branch, university, describle, state, modelType, thesisMark} = this.state;
         return (
             <div id="myModal" className="modal fade" role="dialog">
             <div className="modal-dialog">
@@ -27,7 +28,11 @@ class Modal extends React.Component {
               <div className="modal-content">
                 <div className={!(modelType === 'create')?`modal-header modal-${this.getClassStatus(state)} modal-white`:'modal-header'} style={{borderTopLeftRadius: "6px", borderTopRightRadius: "6px"}}>
                   <button type="button" className="close" data-dismiss="modal">&times;</button>
-                  <h4 className="modal-title">Khóa luận <input className="input-code" placeholder="Mã luận án" value={thesisCode} onChange={e => this.setState({thesisCode: e.target.value})} disabled={!(modelType === 'create')}></input></h4>
+                  <h4 className="modal-title">Khóa luận 
+                    <input className="input-code" placeholder="Mã luận án" value={thesisCode} onChange={e => this.setState({thesisCode: e.target.value})} disabled={!(modelType === 'create')}></input>
+                    Điểm {" "}
+                    <input style={{width:"30%", backgroundColor: "transparent", border: "none", padding:"2px"}} value={thesisMark}  onChange={e => this.setState({mark: e.target.value})} disabled={!(state === 'ACTIVE')}></input>
+                  </h4>
                   <h4 className="modal-title"><input placeholder="Tên luận án" className="input-code" style={{width:"100%", padding:0}} value={thesisSubject} onChange={e => this.setState({thesisSubject: e.target.value})} disabled={!(modelType === 'create')}></input></h4>
                 </div>
                 <div className="modal-body">
@@ -46,6 +51,7 @@ class Modal extends React.Component {
                       className="form-control" style={{resize:"none"}} rows="3" disabled={false}
                       value={describle}
                       onChange={e => this.setState({describle: e.target.value})}
+                      disabled={(state === 'ACTIVE' || state === 'CANCELED' || state === 'COMPLETED')}
                     ></textarea>
                   </div>
                 </div>
@@ -65,6 +71,7 @@ class Modal extends React.Component {
         case 'WAITTING': return 'Đang chờ';
         case 'CANCELED': return 'Bị hủy';
         case 'ACTIVE': return 'Hoạt động';
+        case 'COMPLETED': return 'Hoàn thành';
       }
     }
     
@@ -74,6 +81,7 @@ class Modal extends React.Component {
         case 'WAITTING': return 'waitting';
         case 'CANCELED': return 'canceled';
         case 'ACTIVE': return 'active';
+        case 'COMPLETED': return 'complete';
       }
     }
 
@@ -96,7 +104,7 @@ class Modal extends React.Component {
                   }
               })
           if(localStorage.getItem('userRole') === 'LEC' && this.state.state === 'ACTIVE')
-            request('/lecturer/thesis/mark', 'PATCH',' ',{"Content-type": "application/json"},{...this.state})
+            request(`/lecturer/thesis/mark/${this.state.id}`, 'PATCH',' ',{"Content-type": "application/json"},{...this.state})
               .then (result => {
                   if(result && result.httpCode && result.httpCode === 200){
                     console.log("ok")

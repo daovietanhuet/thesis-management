@@ -21,7 +21,7 @@ const TableRow = props => {
           <a className="name">{lecturerName? lecturerName:  <i className="fa fa-spinner fa-spin"></i>} </a> {" "}
           <i className="fas fa-link"></i> {" "}
           <a className="name">{studentName? studentName: (own && localStorage.getItem('userRole') === 'LEC')? '(chưa đăng ký)' : (state === 'NEW') ? '': '(bị ẩn)'}</a> {" "}
-          {localStorage.getItem('userRole') !== 'STU' ? (thesisMark? `(${thesisMark})`: '(chưa có điểm)'): ''}
+          {localStorage.getItem('userRole') !== 'STU' && own ? (thesisMark? `(${thesisMark})`: '(chưa có điểm)'): ''}
         </h4>
         <p className="summary"> {thesisSubject} ({thesisCode}) </p>
       </td>
@@ -35,14 +35,14 @@ const TableRow = props => {
           <button 
             data-toggle={(state === 'NEW' && localStorage.getItem('userRole') === 'STU') || (state === 'WAITTING') ? '' : 'modal'} 
             data-target="#myModal"
-            className={state === 'CANCELED' ? 'disappear': 'btn btn-default btn-action-pos'}
+            className={(state === 'CANCELED' || state === 'COMPLETED')? 'disappear': 'btn btn-default btn-action-pos'}
             onClick={e => doActivity(state, 'pos', id, onChange, props.ele)}
             type="button"
           >{getActivity(state, 'pos')}</button>
       </td>
       <td>
           <button 
-            className={localStorage.getItem('userRole') === 'STU' || state === 'CANCELED' ? 'disappear': 'btn btn-default btn-action-neg'}
+            className={localStorage.getItem('userRole') === 'STU' || state === 'CANCELED' || state === 'COMPLETED' ? 'disappear': 'btn btn-default btn-action-neg'}
             onClick={e => doActivity(state, 'neg', id)}
             type="button">{getActivity(state, 'neg')}</button>
       </td>
@@ -56,6 +56,7 @@ const getStatus = (status) => {
     case 'WAITTING': return 'Đang chờ';
     case 'CANCELED': return 'Bị hủy';
     case 'ACTIVE': return 'Hoạt động';
+    case 'COMPLETED': return 'Hoàn thành';
   }
 }
 
@@ -65,6 +66,7 @@ const getClassStatus = (status) => {
     case 'WAITTING': return 'waitting';
     case 'CANCELED': return 'canceled';
     case 'ACTIVE': return 'active';
+    case 'COMPLETED': return 'complete';
   }
 }
 
