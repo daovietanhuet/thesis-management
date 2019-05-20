@@ -17,7 +17,8 @@ class Table extends React.Component {
         university: 'Tên Trường',
         describle: 'Mô tả',
         state: 'NEW',
-        studentName: '(Chưa đăng ký)'
+        studentName: '(Chưa đăng ký)',
+        thesisMark: ''
       }
     }
   }

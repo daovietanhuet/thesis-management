@@ -8,7 +8,10 @@ class login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            arlert: false,
+            arlertType: 'success',
+            arlertName: 'Thành công',
+            arlertMes: ''
         }
     }
 
@@ -32,12 +35,26 @@ class login extends React.Component {
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
             </Head>
-            <LoginForm onSuccess={this.onSuccess}/>
+            <LoginForm onSuccess={this.onSuccess} onArlert={this.onArlert}/>
+            <div className={`alert alert-${this.state.arlertType} alert-dismissible ${this.state.arlert? 'fadein_ele' : 'fade'}`} style={{position:'fixed', bottom: 0, margin: 0, width: "100%"}}>
+                <strong>{this.state.arlertName}!</strong> {this.state.arlertMes}
+                <button type="button" className="close" onClick={e => this.setState({arlert: false})}>&times;</button>
+            </div>
         </div>
     )};
 
     onSuccess = () => {
+        this.setState({
+            arlert: true,
+            arlertType: 'success',
+            arlertName: 'Thành công',
+            arlertMes: 'Đăng nhập thành công'
+        })
         Router.push(`/`)
+    }
+
+    onArlert = (state) => {
+        this.setState(state)
     }
 };
 

@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
                 <option value="LEC">Gỉang viên</option>
                 <option value="MAN">Quản lý</option>
               </select>   
-              <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={e => this.onSubmit()}>Đăng nhập</button> 
+              <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={e => this.onSubmit(this.props.onArlert)}>Đăng nhập</button> 
               <div  style={{paddingTop: "10px"}}></div>  
               <Footer/>
             </div>
@@ -32,7 +32,7 @@ class LoginForm extends React.Component {
         );
     }
 
-    onSubmit = () => {
+    onSubmit = (onArlert) => {
         this.setState({loading: true})
         request('/auth/login', 'POST', '', {"Content-type": "application/json"}, {username: this.state.username, password: this.state.password, userRole: this.state.role})
             .then(result => {
@@ -44,8 +44,24 @@ class LoginForm extends React.Component {
                             if(result && result.httpCode && result.httpCode === 200){
                                 localStorage.setItem('userId', result.result.userId);
                                 this.props.onSuccess()
+                            } else {
+                                this.setState({loading: false})
+                                onArlert({
+                                    arlert: true,
+                                    arlertType: 'danger',
+                                    arlertName: 'Thất bại',
+                                    arlertMes: 'Tên đăng nhập hoặc mật khẩu sai'
+                                })
                             }
                         })
+                } else {
+                    this.setState({loading: false})
+                    onArlert({
+                        arlert: true,
+                        arlertType: 'danger',
+                        arlertName: 'Thất bại',
+                        arlertMes: 'Tên đăng nhập hoặc mật khẩu sai'
+                    })
                 }
             })
     }
