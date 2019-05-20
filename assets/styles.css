@@ -149,6 +149,10 @@ span {
     font-weight: 600;
 	color: #2BBCDE;
 }
+.complete {
+    font-weight: 600; 
+    color: #cb00cc
+}
 .summary {
     font-size: 14px;
     margin: 0
@@ -243,6 +247,11 @@ span {
     .modal-active{
         background-color: #2BBCDE
     }
+
+    .modal-complete{
+        background-color: #cb00cc
+    }
+
     .modal-white .modal-title {
         color: #fff
     }

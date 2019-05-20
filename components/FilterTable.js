@@ -12,6 +12,7 @@ const FilterTable = (props) => {
                 <button type="button" className="btn btn-warning btn-filter"  onClick={e => onChange({filter: 'WAITTING'})}>Đang chờ</button>
                 <button type="button" className="btn btn-danger btn-filter"   onClick={e => onChange({filter: 'CANCELED'})}>Hủy</button>
                 <button type="button" className="btn btn-primary btn-filter"  onClick={e => onChange({filter: 'ACTIVE'})}>Hoạt động</button>
+                <button type="button" className="btn btn-primary btn-filter" style={{backgroundColor: "#cb00cc", borderColor: "#cb00cc"}} onClick={e => onChange({filter: 'COMPLETED'})}>Hoàn thành</button>
             </div>
         </div>
     )

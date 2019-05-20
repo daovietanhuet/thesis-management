@@ -11,6 +11,7 @@ class Modal extends React.Component {
         describle: 'Mô tả',
         state: 'NEW',
         activityType: '',
+        thesisMark: '',
         mark: null
       }
     }
@@ -20,7 +21,7 @@ class Modal extends React.Component {
       if(!nextProps.lecturerName) this.setState({lecturerName: null})
     }
     render() {
-      const {thesisCode, thesisSubject, lecturerName, studentName, branch, university, describle, state, modelType, thesisMark} = this.state;
+      const {thesisCode, thesisSubject, lecturerName, studentName, branch, university, describle, state, modelType, thesisMark, onArlert} = this.state;
         return (
             <div id="myModal" className="modal fade" role="dialog">
             <div className="modal-dialog">
@@ -56,7 +57,7 @@ class Modal extends React.Component {
                   </div>
                 </div>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-primary" data-dismiss='modal' onClick={e => this.doActivities()}>Lưu</button>
+                  <button type="button" className="btn btn-primary" data-dismiss='modal' onClick={e => this.doActivities(onArlert)}>Lưu</button>
                   <button type="button" className="btn btn-default" data-dismiss="modal">Thoát</button>
                 </div>
               </div>
@@ -85,32 +86,54 @@ class Modal extends React.Component {
       }
     }
 
-    doActivities = () => {
+    doActivities = (onArlert) => {
       let cf = confirm("Bạn có chắc chắn thực hiện hành động này không. Hành động này có thể ảnh hưởng lớn đến kết quả sau này");
-      if (cf)
+      if (cf){
+        onArlert({loading: true})
         if(this.state.modelType === 'create'){
           request('/lecturer/thesis/create', 'POST',' ',{"Content-type": "application/json"},{...this.state})
             .then (result => {
                 if(result && result.httpCode && result.httpCode === 200){
-                  console.log("ok")
+                  onArlert({
+                    loading: false,
+                    arlert: true,
+                    arlertType: 'success',
+                    arlertName: 'Thành công',
+                    arlertMes: 'Tạo khóa luận mới thành công'
+                  })
+                  setTimeout(window.location.reload(),2000)
                 }
             })
         } else if (this.state.modelType === 'fix'){
           if(localStorage.getItem('userRole') === 'LEC' && this.state.state !== 'ACTIVE' && this.state.state != 'CANCELED')
             request(`/lecturer/thesis/describle/${this.state.id}`, 'PATCH',' ',{"Content-type": "application/json"},{...this.state})
               .then (result => {
-                  if(result && result.httpCode && result.httpCode === 200){
-                    console.log("ok")
-                  }
+                if(result && result.httpCode && result.httpCode === 200)
+                  onArlert({
+                    loading: false,
+                    arlert: true,
+                    arlertType: 'success',
+                    arlertName: 'Thành công',
+                    arlertMes: 'Thay đổi mô tả thành công'
+                  })
+                  setTimeout(window.location.reload(),2000)
               })
           if(localStorage.getItem('userRole') === 'LEC' && this.state.state === 'ACTIVE')
             request(`/lecturer/thesis/mark/${this.state.id}`, 'PATCH',' ',{"Content-type": "application/json"},{...this.state})
               .then (result => {
                   if(result && result.httpCode && result.httpCode === 200){
-                    console.log("ok")
+                    onArlert({
+                      loading: false,
+                      arlert: true,
+                      arlertType: 'success',
+                      arlertName: 'Thành công',
+                      arlertMes: 'Chấm điểm thành công'
+                    })
+                    setTimeout(window.location.reload(),2000)
                   }
               })  
         }
+      }
     }
 }
 

@@ -3,7 +3,7 @@ import request from '../assets/request';
 
 const TableRow = props => {
   const {thesisSubject, state, updated_at, thesisCode, id, thesisMark, lecturerName, studentName} = props.ele;
-  const {own, onChange} = props;
+  const {own, onChange, onArlert} = props;
   return (
     <tr data-status={state} className="fadein_ele">
       <td>
@@ -36,14 +36,14 @@ const TableRow = props => {
             data-toggle={(state === 'NEW' && localStorage.getItem('userRole') === 'STU') || (state === 'WAITTING') ? '' : 'modal'} 
             data-target="#myModal"
             className={(state === 'CANCELED' || state === 'COMPLETED')? 'disappear': 'btn btn-default btn-action-pos'}
-            onClick={e => doActivity(state, 'pos', id, onChange, props.ele)}
+            onClick={e => doActivity(state, 'pos', id, onArlert, onChange, props.ele)}
             type="button"
           >{getActivity(state, 'pos')}</button>
       </td>
       <td>
           <button 
             className={localStorage.getItem('userRole') === 'STU' || state === 'CANCELED' || state === 'COMPLETED' ? 'disappear': 'btn btn-default btn-action-neg'}
-            onClick={e => doActivity(state, 'neg', id)}
+            onClick={e => doActivity(state, 'neg', id, onArlert)}
             type="button">{getActivity(state, 'neg')}</button>
       </td>
     </tr>
@@ -89,7 +89,7 @@ const getActivity = (status, type) => {
   }
 }
 
-const doActivity = (status, type, thesisId, onChange, ele) => {
+const doActivity = (status, type, thesisId, onArlert, onChange, ele) => {
   let userRole = localStorage.getItem('userRole');
   let isStudent = userRole === 'STU';
   let config = null;
@@ -111,13 +111,30 @@ const doActivity = (status, type, thesisId, onChange, ele) => {
   let cf = false;
   if(!config)  onChange({modelThesis: ele, modelType: 'fix'})
   else cf = confirm("Bạn có chắc chắn thực hiện hành động này không. Hành động này có thể ảnh hưởng lớn đến kết quả sau này");
-  if (cf)
+  if (cf){
+    onArlert({loading: true})
     request(config.endpoint+thesisId, config.methods)
       .then (result => {
           if(result && result.httpCode && result.httpCode === 200){
-            console.log("ok")
+            onArlert({
+              loading: false,
+              arlert: true,
+              arlertType: 'success',
+              arlertName: 'Thành công',
+              arlertMes: 'Thực hiện hành động thành công'
+            })
+            setTimeout(window.location.reload(),2000)
+          } else {
+            onArlert({
+              loading: false,
+              arlert: true,
+              arlertType: 'danger',
+              arlertName: 'Thất bại',
+              arlertMes: 'Thực hiện hành động thất bại'
+            })
           }
       })
+  }
 }
 
 export default TableRow;

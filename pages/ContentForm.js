@@ -22,13 +22,13 @@ class ContentForm extends React.Component {
           <section className="content">
             <div className="panel panel-default">
               <div className="panel-body">
-                  <FilterTable {...this.state} onChange={this.onSetState}/>
-                  <Table {...this.state} onChange={this.onSetState}/>
+                  <FilterTable {...this.state} onChange={this.onSetState} {...this.props}/>
+                  <Table {...this.state} onChange={this.onSetState} {...this.props}/>
                 </div>
             </div>
             <Footer/>
           </section>
-          <Modal {...this.state.modelThesis} modelType={this.state.modelType} own={this.state.own}/>
+          <Modal {...this.state.modelThesis} modelType={this.state.modelType} own={this.state.own} {...this.props}/>
         </div>
       </div>
     )
